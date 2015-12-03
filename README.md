@@ -1,2 +1,1 @@
-# adventofcode
-***spoiler warning*** Advent of Code (http://adventofcode.com/) solutions
+***spoiler warning*** [Advent of Code](http://adventofcode.com/) solutions
