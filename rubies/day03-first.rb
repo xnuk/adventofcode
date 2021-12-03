@@ -1,0 +1,1 @@
+A=$<.read.split.map(&:chars).transpose.map{|a| a.count("1") > a.length / 2 ? "1" : "0"}.join; p A.to_i(2) * A.tr("01", "10").to_i(2)
