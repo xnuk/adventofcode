@@ -13,7 +13,7 @@ data Cmd a = Forward a | Up a | Down a deriving (Show, Eq)
 data Something a = Something {horizontal :: a, aim :: a, depth :: a}
 
 initSomething :: Integral a => Something a
-initSomething = Something {horizontal = 0, aim = 0, depth = 0}
+initSomething = Something{horizontal = 0, aim = 0, depth = 0}
 
 parse :: Integral a => Text -> Maybe (Cmd a)
 parse = do
@@ -36,12 +36,12 @@ firstHalf =
 secondHalf :: [Cmd Int] -> Int
 secondHalf = unwrap . foldl' reducer initSomething
   where
-    reducer state@Something {horizontal, aim, depth} = \case
+    reducer state@Something{horizontal, aim, depth} = \case
       Forward a ->
-        state {horizontal = horizontal + a, depth = depth + aim * a}
-      Up a -> state {aim = aim - a}
-      Down a -> state {aim = aim + a}
-    unwrap Something {horizontal, depth} = horizontal * depth
+        state{horizontal = horizontal + a, depth = depth + aim * a}
+      Up a -> state{aim = aim - a}
+      Down a -> state{aim = aim + a}
+    unwrap Something{horizontal, depth} = horizontal * depth
 
 main :: IO ()
 main = do
