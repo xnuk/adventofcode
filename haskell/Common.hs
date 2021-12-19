@@ -20,6 +20,7 @@ module Common
     module Prelude,
     module Data.List,
     module Data.Bool,
+    module Safe,
     decimal,
     getLines,
     putStr,
@@ -43,6 +44,7 @@ import qualified "text" Data.Text as T
 import "text" Data.Text.IO hiding (putStr, putStrLn)
 import qualified "text" Data.Text.IO as T
 import qualified "text" Data.Text.Read as T
+import "safe" Safe
 import Prelude hiding
   ( appendFile,
     getContents,

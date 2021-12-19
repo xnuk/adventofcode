@@ -43,17 +43,12 @@ oxygen, carbon :: [Bool] -> Bool
 oxygen = fromMaybe True . popular
 carbon = not . oxygen
 
-at :: Int -> [a] -> Maybe a
-at i xs
-  | length xs > i && 0 <= i = Just $ xs !! i
-  | otherwise = Nothing
-
 criteria :: ([Bool] -> Bool) -> Int -> [[Bool]] -> [Bool]
 criteria _ _ [] = []
 criteria _ _ [xs] = xs
 criteria rating index xs = criteria rating (succ index) select
   where
-    poped = fromMaybe [] $ mapM (\x -> at index x <&> (,x)) xs
+    poped = fromMaybe [] $ mapM (\x -> atMay x index <&> (,x)) xs
     rate = rating $ map fst poped
     select = map snd $ filter ((== rate) . fst) poped
 
