@@ -26,6 +26,7 @@ module Common
     putStr,
     putStrLn,
     showt,
+    (&.),
   )
 where
 
@@ -39,7 +40,7 @@ import "base" Data.Function
 import "base" Data.Functor
 import "base" Data.List (partition, transpose)
 import "base" Data.Maybe
-import "text" Data.Text (Text, lines, split, strip, stripPrefix, stripSuffix, unlines, unwords, words)
+import "text" Data.Text (Text, lines, split, splitOn, strip, stripPrefix, stripSuffix, unlines, unwords, words)
 import qualified "text" Data.Text as T
 import "text" Data.Text.IO hiding (putStr, putStrLn)
 import qualified "text" Data.Text.IO as T
@@ -84,3 +85,8 @@ instance PrintableStr String where
 
 showt :: Show a => a -> Text
 showt = T.pack . show
+
+infixl 9 &.
+
+(&.) :: (a -> b) -> (b -> c) -> a -> c
+(&.) = (>>>)
