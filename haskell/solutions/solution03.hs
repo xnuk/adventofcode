@@ -1,15 +1,5 @@
-{-# LANGUAGE BlockArguments #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -Wall #-}
-
-import Common
-import "base" Data.Bits
-import qualified "text" Data.Text as T
+import Data.Bits
+import "text" Data.Text qualified as T
 
 binary :: Bits a => [Bool] -> a
 binary =

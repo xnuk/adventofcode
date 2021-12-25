@@ -1,13 +1,3 @@
-{-# LANGUAGE BlockArguments #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -Wall #-}
-
-import Common
-
 data Cmd a = Forward a | Up a | Down a deriving (Show, Eq)
 
 data Something a = Something {horizontal :: a, aim :: a, depth :: a}

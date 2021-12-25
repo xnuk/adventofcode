@@ -1,16 +1,10 @@
-{-# LANGUAGE BlockArguments #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE TypeSynonymInstances #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -Wall #-}
-
 module Common
   ( module Data.Maybe,
     module Data.Either,
     module Data.Function,
     module Data.Functor,
+    module Data.Char,
+    module Data.Word,
     module Control.Arrow,
     module Control.Applicative,
     module Control.Monad,
@@ -34,6 +28,7 @@ import "base" Control.Applicative
 import "base" Control.Arrow
 import "base" Control.Monad
 import "base" Data.Bool
+import "base" Data.Char (chr, ord)
 import "base" Data.Either
 import "base" Data.Foldable
 import "base" Data.Function
@@ -41,10 +36,11 @@ import "base" Data.Functor
 import "base" Data.List (partition, transpose)
 import "base" Data.Maybe
 import "text" Data.Text (Text, lines, split, splitOn, strip, stripPrefix, stripSuffix, unlines, unwords, words)
-import qualified "text" Data.Text as T
+import "text" Data.Text qualified as T
 import "text" Data.Text.IO hiding (putStr, putStrLn)
-import qualified "text" Data.Text.IO as T
-import qualified "text" Data.Text.Read as T
+import "text" Data.Text.IO qualified as T
+import "text" Data.Text.Read qualified as T
+import "base" Data.Word
 import "safe" Safe
 import Prelude hiding
   ( appendFile,
@@ -60,7 +56,7 @@ import Prelude hiding
     words,
     writeFile,
   )
-import qualified Prelude as P
+import Prelude qualified as P
 
 decimal :: Integral a => Text -> Maybe a
 decimal =

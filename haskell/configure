@@ -1,0 +1,13 @@
+#!/bin/sh
+# shellcheck shell=dash
+
+set -eu
+
+sed -i '/-- @generated/q' ./adventofcode.cabal
+
+for v in solutions/*.hs; do
+	printf '\nexecutable %s\n  import: exe\n  main-is: %s\n' \
+		"$(echo "$v" | sed -E 's=^solutions/|\.hs$==g')" \
+		"$v" \
+		>> ./adventofcode.cabal
+done

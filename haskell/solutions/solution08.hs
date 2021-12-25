@@ -1,20 +1,9 @@
-{-# LANGUAGE BlockArguments #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeApplications #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -Wall #-}
-
-import Common
 import "transformers" Control.Monad.Trans.Class (MonadTrans (lift))
 import "transformers" Control.Monad.Trans.State.Lazy (StateT, evalStateT, state)
-import qualified "base" Data.Bits as B (Bits (popCount, setBit, testBit, xor, (.&.), (.|.)))
-import "base" Data.List (elemIndex)
-import qualified "text" Data.Text as T
-import "base" Data.Word (Word8)
+import Data.Bits qualified as B (Bits (popCount, setBit, testBit, xor, (.&.), (.|.)))
+import Data.List (elemIndex)
+import "text" Data.Text qualified as T
+import Data.Word (Word8)
 
 {-
 

@@ -1,0 +1,88 @@
+cabal-version: 3.4
+name: adventofcode
+version: 2021.1.0.0
+author: Xnuk Shuman
+license: AGPL-3.0-or-later
+
+common deps
+  build-depends:
+    , base > 4.14 && < 5
+    , containers
+    , hashable
+    , safe
+    , text
+    , transformers
+    , unordered-containers
+
+  ghc-options:
+    -dynamic
+    -Weverything
+    -Wno-missing-import-lists
+    -Wno-safe
+    -Wno-unused-packages
+    -Wno-implicit-prelude
+    -Wno-missing-local-signatures
+    -Wno-inferred-safe-imports
+    -Wno-missing-deriving-strategies
+
+  default-extensions:
+    BlockArguments
+    FlexibleInstances
+    ImportQualifiedPost
+    LambdaCase
+    NamedFieldPuns
+    OverloadedStrings
+    PackageImports
+    TupleSections
+    TypeApplications
+    TypeSynonymInstances
+
+library
+  import: deps
+  hs-source-dirs: common
+  exposed-modules: Common
+
+  default-extensions:
+    NoImplicitPrelude
+
+common exe
+  import: deps
+  build-depends: adventofcode
+
+  mixins:
+    , base hiding (Prelude)
+    , adventofcode (Common as Prelude)
+
+-- @generated
+
+executable solution01
+  import: exe
+  main-is: solutions/solution01.hs
+
+executable solution02
+  import: exe
+  main-is: solutions/solution02.hs
+
+executable solution03
+  import: exe
+  main-is: solutions/solution03.hs
+
+executable solution04
+  import: exe
+  main-is: solutions/solution04.hs
+
+executable solution05
+  import: exe
+  main-is: solutions/solution05.hs
+
+executable solution06
+  import: exe
+  main-is: solutions/solution06.hs
+
+executable solution07
+  import: exe
+  main-is: solutions/solution07.hs
+
+executable solution08
+  import: exe
+  main-is: solutions/solution08.hs

@@ -1,16 +1,5 @@
-{-# LANGUAGE BlockArguments #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeApplications #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -Wall #-}
-
-import Common
 import "unordered-containers" Data.HashSet (HashSet)
-import qualified "unordered-containers" Data.HashSet as S
+import "unordered-containers" Data.HashSet qualified as S
 import "hashable" Data.Hashable (Hashable (hashWithSalt))
 
 newtype X a = X a deriving (Eq, Show, Ord)
