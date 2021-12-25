@@ -86,3 +86,15 @@ executable solution07
 executable solution08
   import: exe
   main-is: solutions/solution08.hs
+
+executable solution09
+  import: exe
+  main-is: solutions/solution09.hs
+
+executable solution10
+  import: exe
+  main-is: solutions/solution10.hs
+
+executable solution11
+  import: exe
+  main-is: solutions/solution11.hs
