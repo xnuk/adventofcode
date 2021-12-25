@@ -1,12 +1,37 @@
+module Main where
+
 import "containers" Data.IntSet (IntSet)
-import "text" Data.Text qualified as T
+import qualified "containers" Data.IntSet as S
+import Data.List (groupBy, sortBy)
+import qualified "text" Data.Text as T
 
 newtype Field = Field [[Word8]]
 
 instance Show Field where
   show (Field a) = "Field " <> show a
 
-data Sex a = Sex a
+data Indices = Indices
+  { indicesCols :: Int
+  , indicesData :: [IntSet] -- 9, 8, 7, 6, ..., 1, 0
+  }
+  deriving (Show)
+
+repl :: (Monoid m, Integral i) => i -> m -> [m]
+repl i x = replicate (fromIntegral i) mempty <> [x] <> repeat mempty
+
+fromField :: Field -> Indices
+fromField (Field []) = Indices 0 []
+fromField (Field xs@(h : _)) =
+  concat xs
+    & zip [0 ..]
+    & sortBy (compare `on` snd)
+    & groupBy ((==) `on` snd)
+    & map (unzip &. (S.fromList *** head) &. (\(x, i) -> repl i x))
+    & transpose
+    & take 10
+    & map mconcat
+    & reverse
+    & Indices (length h)
 
 withField :: ([[Word8]] -> [[Word8]]) -> Field -> Field
 withField f (Field x) = Field (f x)
