@@ -19,11 +19,14 @@ common deps
     -Weverything
     -Wno-missing-import-lists
     -Wno-safe
+    -Wno-unsafe
     -Wno-unused-packages
     -Wno-implicit-prelude
     -Wno-missing-local-signatures
     -Wno-inferred-safe-imports
     -Wno-missing-deriving-strategies
+    -Wno-missing-safe-haskell-mode
+    -Wno-unused-do-bind
 
   default-extensions:
     BlockArguments
@@ -36,11 +39,12 @@ common deps
     TupleSections
     TypeApplications
     TypeSynonymInstances
+    QualifiedDo
 
 library
   import: deps
   hs-source-dirs: common
-  exposed-modules: Common
+  exposed-modules: Common, Common.Chain, Common.Pot
 
   default-extensions:
     NoImplicitPrelude
@@ -52,6 +56,7 @@ common exe
   mixins:
     , base hiding (Prelude)
     , adventofcode (Common as Prelude)
+    , adventofcode
 
 -- @generated
 

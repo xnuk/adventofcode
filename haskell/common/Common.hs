@@ -14,6 +14,7 @@ module Common
     module Prelude,
     module Data.List,
     module Data.Bool,
+    module GHC.Exts,
     module Safe,
     decimal,
     getLines,
@@ -30,10 +31,10 @@ import "base" Control.Monad
 import "base" Data.Bool
 import "base" Data.Char (chr, ord)
 import "base" Data.Either
-import "base" Data.Foldable
+import "base" Data.Foldable hiding (toList)
 import "base" Data.Function
 import "base" Data.Functor
-import "base" Data.List (partition, transpose)
+import "base" Data.List (partition, transpose, group, groupBy, sort, sortBy, sortOn)
 import "base" Data.Maybe
 import "text" Data.Text (Text, lines, split, splitOn, strip, stripPrefix, stripSuffix, unlines, unwords, words)
 import "text" Data.Text qualified as T
@@ -41,6 +42,7 @@ import "text" Data.Text.IO hiding (putStr, putStrLn)
 import "text" Data.Text.IO qualified as T
 import "text" Data.Text.Read qualified as T
 import "base" Data.Word
+import "base" GHC.Exts (IsList (..))
 import "safe" Safe
 import Prelude hiding
   ( appendFile,
