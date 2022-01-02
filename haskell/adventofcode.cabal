@@ -41,6 +41,7 @@ common deps
     TypeApplications
     TypeSynonymInstances
     MultiWayIf
+    ConstraintKinds
     -- QualifiedDo
 
 library
@@ -109,3 +110,7 @@ executable solution11
 executable solution12
   import: exe
   main-is: solutions/solution12.hs
+
+executable solution13
+  import: exe
+  main-is: solutions/solution13.hs
