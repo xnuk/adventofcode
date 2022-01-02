@@ -13,6 +13,7 @@ common deps
     , text
     , transformers
     , unordered-containers
+    , bytestring
 
   ghc-options:
     -dynamic
@@ -39,7 +40,8 @@ common deps
     TupleSections
     TypeApplications
     TypeSynonymInstances
-    QualifiedDo
+    MultiWayIf
+    -- QualifiedDo
 
 library
   import: deps
@@ -103,3 +105,7 @@ executable solution10
 executable solution11
   import: exe
   main-is: solutions/solution11.hs
+
+executable solution12
+  import: exe
+  main-is: solutions/solution12.hs

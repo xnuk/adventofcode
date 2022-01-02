@@ -1,6 +1,4 @@
-import Data.Char (ord)
 import Data.Text qualified as T (unpack)
-import Data.Word (Word8)
 
 testInput :: [Text]
 testInput =
@@ -13,10 +11,10 @@ testInput =
 
 toDigit :: Char -> Maybe Word8
 toDigit c
-  | 0 <= dec && dec <= 9 = Just $ fromIntegral dec
+  | 0 <= dec && dec <= 9 = Just dec
   | otherwise = Nothing
   where
-    dec = ord c - ord '0'
+    dec = ord c - ord @Word8 '0'
 
 parseLines :: [Text] -> [[Word8]]
 parseLines = map (mapMaybe toDigit . T.unpack)
