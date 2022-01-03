@@ -114,3 +114,7 @@ executable solution12
 executable solution13
   import: exe
   main-is: solutions/solution13.hs
+
+executable solution14
+  import: exe
+  main-is: solutions/solution14.hs
