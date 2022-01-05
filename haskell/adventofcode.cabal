@@ -14,6 +14,7 @@ common deps
     , transformers
     , unordered-containers
     , bytestring
+    , psqueues
 
   ghc-options:
     -dynamic
@@ -118,3 +119,7 @@ executable solution13
 executable solution14
   import: exe
   main-is: solutions/solution14.hs
+
+executable solution15
+  import: exe
+  main-is: solutions/solution15.hs
