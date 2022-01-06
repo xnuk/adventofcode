@@ -26,7 +26,7 @@ impl PartialOrd for Point {
 
 impl Ord for Point {
 	fn cmp(&self, other: &Self) -> Ordering {
-		self.partial_cmp(&other).unwrap_or(Ordering::Equal)
+		self.partial_cmp(other).unwrap_or(Ordering::Equal)
 	}
 }
 
@@ -56,7 +56,7 @@ fn clip_nine(v: u8) -> u8 {
 }
 
 #[must_use]
-fn expand(field: &Vec<Vec<u8>>) -> Vec<Vec<u8>> {
+fn expand(field: &[Vec<u8>]) -> Vec<Vec<u8>> {
 	let first_row = field
 		.iter()
 		.map(|row| {
@@ -85,7 +85,7 @@ fn expand(field: &Vec<Vec<u8>>) -> Vec<Vec<u8>> {
 	matrix
 }
 
-fn iterate(field: &Vec<Vec<u8>>) -> Option<i32> {
+fn iterate(field: &[Vec<u8>]) -> Option<i32> {
 	let rows = field.len();
 	let cols = field[0].len();
 
@@ -122,7 +122,7 @@ fn iterate(field: &Vec<Vec<u8>>) -> Option<i32> {
 		}
 	}
 
-	costs.get(&(rows - 1, cols - 1)).map(|v| *v)
+	costs.get(&(rows - 1, cols - 1)).copied()
 }
 
 #[must_use]
